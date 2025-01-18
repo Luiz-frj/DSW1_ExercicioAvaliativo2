@@ -12,24 +12,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/principal.do")
+@WebServlet("/front.do")
 public class Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static boolean flag = false;
-
-    public Servlet() {
-        super();
-        if(!flag) {
-            var dao = new UsuarioDAOFactory().factory();
-            Usuario user = dao.findByLogin("admin");
-            if(user==null) {
-                user = new Usuario("admin","admin");
-                flag = dao.insert(user);
-            }else {
-                flag = true;
-            }
-        }
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);

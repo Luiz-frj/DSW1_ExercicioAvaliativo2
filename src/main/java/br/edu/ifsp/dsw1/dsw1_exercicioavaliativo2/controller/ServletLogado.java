@@ -31,9 +31,9 @@ public class ServletLogado extends HttpServlet {
         }else if("newUser".equals(action)) {
             command = new NewUserCommand();//
         }else if("newOrder".equals(action)) {
-            command = new CreateOrderCommand();//
+            command = new NewOrderCommand();//
         }else if("orders".equals(action)) {
-            command = new OrderCommand();
+            command = new OrdersCommand();
         }else if("logout".equals(action)) {
             command = new LogoutCommand();//
         }else if("createUser".equals(action)) {

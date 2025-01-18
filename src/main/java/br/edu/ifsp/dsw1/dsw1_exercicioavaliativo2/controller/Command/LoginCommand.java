@@ -17,22 +17,22 @@ public class LoginCommand implements Command{
         String admSenha = "admin";
 
         var dao = new UsuarioDAOFactory().factory();
-        var user = dao.findByLogin(login);
+        var usuario = dao.findByLogin(login);
 
-        var authorized = Usuario.verifica(user, login, senha);
+        var authorized = Usuario.verifica(usuario, login, senha);
 
         String view;
 
         if(authorized || request.getParameter("textLogin").equals(admLogin) && request.getParameter("textSenha").equals(admSenha)) {
 
             var session = request.getSession(true);
-            session.setAttribute("user_id", user);
+            session.setAttribute("user_id", usuario);
             session.setMaxInactiveInterval(24 * 60 * 60);
             view = "logado.do?action=logged";
         }else {
 
             request.setAttribute("message", "Usuario não reconhecido.");
-            view = "/principal.do?action=index";
+            view = "/front.do?action=index";
         }
         return view;
     }

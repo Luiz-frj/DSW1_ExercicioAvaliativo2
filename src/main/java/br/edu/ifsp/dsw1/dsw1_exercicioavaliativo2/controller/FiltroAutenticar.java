@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(urlPatterns= {"/Logado/*","/pedido.do"})
+@WebFilter(urlPatterns= {"/Logado/*","/logado.do"})
 public class FiltroAutenticar implements Filter{
 
     @Override

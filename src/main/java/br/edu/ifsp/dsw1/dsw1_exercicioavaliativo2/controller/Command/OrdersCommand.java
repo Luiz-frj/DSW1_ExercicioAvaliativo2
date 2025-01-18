@@ -9,11 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class RelatorioCommand implements Command{
+public class OrdersCommand implements Command{
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //Recuperando todos os pedidos cadastrados no banco
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PedidosDAO dao = new PedidosDAOFactory().factory();
 
         List<Pedidos> pedidos = dao.retriveAll();

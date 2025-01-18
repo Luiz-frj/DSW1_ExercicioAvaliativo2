@@ -16,7 +16,7 @@ public class UsuarioDAOFactory {
         if(type == UsuarioDAOType.DATABASE) {
             return new DatabaseUsuarioDAO();
         } else {
-            throw new IllegalArgumentException("Tipo de contato desconhecido: " + type);
+            throw new IllegalArgumentException("Tipo de dado desconhecido: " + type);
         }
     }
 }

@@ -16,7 +16,7 @@
 	<hr>
 	<%} %>
 
-	<form action="<%= request.getContextPath() %>/principal.do?action=login" method="post">
+	<form action="<%= request.getContextPath() %>/front.do?action=login" method="post">
 		<label for="login">Login</label>
 		<input type="text" id="login" name="textLogin"
 			   placeholder="Digite seu login." required="required">

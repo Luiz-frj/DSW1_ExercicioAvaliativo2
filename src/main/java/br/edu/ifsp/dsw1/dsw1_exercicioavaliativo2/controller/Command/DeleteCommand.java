@@ -14,16 +14,16 @@ public class DeleteCommand implements Command{
 
         PedidosDAO dao = new PedidosDAOFactory().factory();
 
-        boolean deleted = dao.delete(id);
+        boolean deletado = dao.delete(id);
 
-        String message;
-        if(deleted) {
-            message = "Pedido excluído com sucesso.";
+        String msg;
+        if(deletado) {
+            msg = "Pedido excluído com sucesso.";
         }else {
-            message = "Erro ao excluir o pedido.";
+            msg = "Erro ao excluir o pedido.";
         }
 
-        request.setAttribute("message", message);
+        request.setAttribute("message", msg);
 
         return "logado.do?action=orders";
     }

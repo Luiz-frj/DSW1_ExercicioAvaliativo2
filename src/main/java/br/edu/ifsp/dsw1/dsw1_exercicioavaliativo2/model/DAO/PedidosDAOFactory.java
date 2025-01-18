@@ -16,7 +16,7 @@ public class PedidosDAOFactory {
         if(type == PedidosDAOType.DATABASE) {
             return new DatabasePedidosDAO();
         } else {
-            throw new IllegalArgumentException("Tipo de contato desconhecido: " + type);
+            throw new IllegalArgumentException("Tipo de dado desconhecido: " + type);
         }
     }
 

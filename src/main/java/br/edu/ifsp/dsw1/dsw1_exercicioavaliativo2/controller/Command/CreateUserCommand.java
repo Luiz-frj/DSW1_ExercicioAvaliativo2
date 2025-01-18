@@ -20,14 +20,14 @@ public class CreateUserCommand implements Command{
         Usuario usuario = new Usuario(login,senha);
         boolean saved = dao.insert(usuario);
 
-        String message;
+        String msg;
         if(saved) {
-            message = "Usuario criado com sucesso.";
+            msg = "Usuario criado com sucesso.";
         }else {
-            message = "Erro ao criar o usuário.";
+            msg = "Erro ao criar o usuário.";
         }
-        
-        request.setAttribute("message",message);
+
+        request.setAttribute("message",msg);
 
         return "/Logado/form_user.jsp";
     }

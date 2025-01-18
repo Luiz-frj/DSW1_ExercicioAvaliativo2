@@ -13,39 +13,39 @@ public class CreateOrderCommand implements Command{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        var login = request.getParameter("textLogin");
-        var valor = Double.parseDouble(request.getParameter("textValor"));
         var nome = request.getParameter("textNomeCliente");
         var endereco = request.getParameter("textEnderecoEntrega");
+        var valor = Double.parseDouble(request.getParameter("textValor"));
         var descricao = request.getParameter("textDescricao");
-        String message;
+        var login = request.getParameter("textLogin");
 
-        Pedidos pedido = new Pedidos();
-
-        if(endereco.isEmpty() && descricao.isEmpty()) {
+        if(endereco.isEmpty()) {
             endereco = null;
+        }
+        if(descricao.isEmpty()) {
             descricao = null;
         }
 
         var usuario = (Usuario) request.getSession(false).getAttribute("user_id");
-
         PedidosDAO dao = new PedidosDAOFactory().factory();
 
+        Pedidos pedido = new Pedidos();
         pedido.setNomeCliente(nome);
         pedido.setDescricao(descricao);
         pedido.setEnderecoEntrega(endereco);
         pedido.setValor(valor);
 
         boolean saved = dao.create(usuario, pedido);
-
-        if(saved) {
-            message = "Pedido salvo com sucesso.";
-        }else {
-            message = "Erro ao salvar pedido.";
+        String msg;
+        if (saved) {
+            msg = "Pedido salvo com sucesso.";
+        } else {
+            msg = "Erro ao salvar pedido.";
         }
 
-        request.setAttribute("message", message);
+        request.setAttribute("message", msg);
 
         return "Logado/form_pedido.jsp";
     }
+
 }

@@ -28,6 +28,7 @@ public class CommitUpdateCommand implements Command {
         PedidosDAO dao = new PedidosDAOFactory().factory();
 
         Pedidos pedido = new Pedidos();
+
         pedido.setIdPedido(id);
         pedido.setNomeCliente(nome);
         pedido.setEnderecoEntrega(endereco);

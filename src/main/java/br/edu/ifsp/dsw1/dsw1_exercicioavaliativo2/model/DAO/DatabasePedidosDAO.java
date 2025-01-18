@@ -34,29 +34,34 @@ public class DatabasePedidosDAO implements PedidosDAO {
     private static final String DELETE = "DELETE FROM pedidos WHERE id_pedidos = ?";
 
     @Override
-    public boolean create(Usuario usuario,Pedidos pedido) {
-
+    public boolean create(Usuario usuario, Pedidos pedido) {
         if (pedido != null) {
             int rows = -1;
-                try ( var conn = DatabaseConnection.getConnection();
-                    var  insertPreparedStatement = conn.prepareStatement(INSERT);){
+            try (var conn = DatabaseConnection.getConnection();
+                 var insertPreparedStatement = conn.prepareStatement(INSERT)) {
 
-                    insertPreparedStatement.setString(1, pedido.getNomeCliente());
-                    insertPreparedStatement.setString(2, pedido.getEnderecoEntrega());
-                    insertPreparedStatement.setDouble(3, pedido.getValor());
-                    insertPreparedStatement.setString(4, pedido.getDescricao());
-                    insertPreparedStatement.setString(5, pedido.getLogin());
+                // Preenchendo os valores
+                insertPreparedStatement.setString(1, pedido.getNomeCliente());
+                insertPreparedStatement.setString(2, pedido.getEnderecoEntrega());
+                insertPreparedStatement.setDouble(3, pedido.getValor());
+                insertPreparedStatement.setString(4, pedido.getDescricao());
+                insertPreparedStatement.setString(5, usuario.getLogin());
 
-                    rows = insertPreparedStatement.executeUpdate();
+                // Executando a consulta
+                rows = insertPreparedStatement.executeUpdate();
 
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.err.println("SQLState: " + e.getSQLState());
+                System.err.println("Error Code: " + e.getErrorCode());
+                System.err.println("Message: " + e.getMessage());
+            }
 
             return rows > 0;
         }
         return false;
     }
+
 
     @Override
     public Pedidos retrive(int id) {
