@@ -15,6 +15,20 @@ import java.io.IOException;
 @WebServlet("/front.do")
 public class Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private static boolean exist = false;
+    public Servlet() {
+        super();
+        if(exist == false){
+            var dao = new UsuarioDAOFactory().factory();
+            Usuario user = dao.findByLogin("admin");
+            if (user == null) {
+                user = new Usuario("admin", "admin");
+                exist = dao.insert(user);
+            } else {
+                exist = true;
+            }
+        }
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
