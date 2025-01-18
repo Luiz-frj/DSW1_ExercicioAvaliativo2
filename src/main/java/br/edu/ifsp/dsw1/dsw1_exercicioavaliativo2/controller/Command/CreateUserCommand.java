@@ -17,7 +17,6 @@ public class CreateUserCommand implements Command{
 
         UsuarioDAO dao = new UsuarioDAOFactory().factory();
 
-        //Criando novo usuário
         Usuario usuario = new Usuario(login,senha);
         boolean saved = dao.insert(usuario);
 

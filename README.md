@@ -5,3 +5,7 @@
 
 ### Observações:
 Devido a mudança da IDE (do Eclipse para o IntelliJ), precisei recomeçar o projeto, fazendo assim com que fosse criado outro repostirorio Git
+
+#### OBS:
+    - Login padrão: "admin"
+    - Senha padrão: "admin"
