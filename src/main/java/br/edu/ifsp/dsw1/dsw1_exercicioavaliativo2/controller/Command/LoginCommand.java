@@ -13,18 +13,14 @@ public class LoginCommand implements Command{
         var login = request.getParameter("textLogin");
         var senha = request.getParameter("textSenha");
 
-        String admLogin = "admin";
-        String admSenha = "admin";
-
         var dao = new UsuarioDAOFactory().factory();
         var user = dao.findByLogin(login);
 
-        //Checando se o usuário pode ser autenticado
         var authorized = Usuario.verifica(user, login, senha);
 
         String view;
 
-        if(authorized || request.getParameter("textLogin").equals(admLogin) && request.getParameter("textSenha").equals(admSenha)) {
+        if(authorized) {
 
             var session = request.getSession(true);
             session.setAttribute("user_id", user);

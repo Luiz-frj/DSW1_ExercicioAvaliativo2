@@ -11,8 +11,7 @@ import java.util.List;
 
 public class BuscaClienteCommand implements Command{
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var cliente = request.getParameter("textBusca");
 
         PedidosDAO dao = new PedidosDAOFactory().factory();

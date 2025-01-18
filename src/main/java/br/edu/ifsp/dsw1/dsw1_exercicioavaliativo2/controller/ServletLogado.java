@@ -27,30 +27,31 @@ public class ServletLogado extends HttpServlet {
         String action = request.getParameter("action");
 
         if("logged".equals(action)) {
-            command = new LogadoCommand();
+            command = new LogadoCommand();//
         }else if("newUser".equals(action)) {
-            command = new NewUserCommand();
+            command = new NewUserCommand();//
         }else if("newOrder".equals(action)) {
-            command = new NewOrderCommand();
+            command = new CreateOrderCommand();//
         }else if("orders".equals(action)) {
             command = new OrderCommand();
         }else if("logout".equals(action)) {
-            command = new LogoutCommand();
+            command = new LogoutCommand();//
         }else if("createUser".equals(action)) {
-            command = new CreateUserCommand();
+            command = new CreateUserCommand();//
         }else if("createOrder".equals(action)) {
-            command = new NewOrderCommand();
+            command = new CreateOrderCommand();//
         }else if("buscarCliente".equals(action)) {
-            command = new BuscaClienteCommand();
+            command = new BuscaClienteCommand();//
         }else if("update".equals(action)) {
-            command = new UpdateCommand();
+            command = new UpdateCommand();//
         }else if("commitUpdate".equals(action)) {
-            command = new CommitUpdateCommand();
+            command = new CommitUpdateCommand();//
         }else if("delete".equals(action)) {
-            command = new DeleteCommand();
+            command = new DeleteCommand();//
         }
 
         String view = command.execute(request,response);
+
         var dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }

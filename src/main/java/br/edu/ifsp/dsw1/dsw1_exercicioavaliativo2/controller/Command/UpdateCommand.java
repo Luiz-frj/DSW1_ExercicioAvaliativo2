@@ -10,16 +10,13 @@ import java.io.IOException;
 
 public class UpdateCommand implements Command{
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //Aqui, recuperamos qual é o pedido que será editado
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var id = Integer.parseInt(request.getParameter("id"));
 
         PedidosDAO dao = new PedidosDAOFactory().factory();
 
         Pedidos pedido = dao.retrive(id);
 
-        //Adicionamos o pedido na request para ele ser recuperado na update.jsp
         request.setAttribute("pedido", pedido);
 
         return "/Logado/update.jsp";
