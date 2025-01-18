@@ -33,7 +33,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public boolean verifica(Usuario fromSystem, String login, String senha){
+    public static boolean verifica(Usuario fromSystem, String login, String senha){
         if(fromSystem != null){
             return login.equals(fromSystem.getLogin()) && senha.equals(fromSystem.senha);
         }

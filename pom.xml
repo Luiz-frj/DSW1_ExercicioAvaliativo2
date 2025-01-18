@@ -27,6 +27,7 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Caso queira usar lombok, só fazer alguns ajustes no codigo-->
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -12,7 +12,7 @@ public interface PedidosDAO {
     List<Pedidos> retriveAll();
     List<Pedidos> retriveByName(String name);
     boolean update (Pedidos updatedPedido);
-    boolean delete (Pedidos pedido);
+    boolean delete (int id);
 
 }
 

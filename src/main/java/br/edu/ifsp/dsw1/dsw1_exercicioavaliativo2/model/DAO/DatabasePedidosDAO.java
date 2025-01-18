@@ -164,21 +164,18 @@ public class DatabasePedidosDAO implements PedidosDAO {
     }
 
     @Override
-    public boolean delete(Pedidos pedido) {
-        if (pedido != null) {
-            int rows = -1;
-            try (var conn = DatabaseConnection.getConnection();
-                 var deletePreparedStatement = conn.prepareStatement(DELETE);){
+    public boolean delete(int id) {
+        int rows = -1;
+        try (var conn = DatabaseConnection.getConnection();
+             var deletePreparedStatement = conn.prepareStatement(DELETE);){
 
-                deletePreparedStatement.setInt(1, pedido.getIdPedido());
+            deletePreparedStatement.setInt(1, id);
 
-                rows = deletePreparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            return rows > 0;
+            rows = deletePreparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return false;
+        return rows > 0;
     }
 
 }
