@@ -26,6 +26,7 @@ public class CreateUserCommand implements Command{
         }else {
             message = "Erro ao criar o usuário.";
         }
+        
         request.setAttribute("message",message);
 
         return "/Logado/form_user.jsp";

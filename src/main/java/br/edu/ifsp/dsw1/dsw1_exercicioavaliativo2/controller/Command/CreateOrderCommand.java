@@ -11,36 +11,33 @@ import java.io.IOException;
 
 public class CreateOrderCommand implements Command{
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //Recuperando valores do formulário
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        var login = request.getParameter("textLogin");
+        var valor = Double.parseDouble(request.getParameter("textValor"));
         var nome = request.getParameter("textNomeCliente");
         var endereco = request.getParameter("textEnderecoEntrega");
-        var valor = Double.parseDouble(request.getParameter("textValor"));
         var descricao = request.getParameter("textDescricao");
-        var login = request.getParameter("textLogin");
+        String message;
 
-        if(endereco.equals("")) {
+        Pedidos pedido = new Pedidos();
+
+        if(endereco.isEmpty() && descricao.isEmpty()) {
             endereco = null;
-        }
-        if(descricao.equals("")) {
             descricao = null;
         }
 
-
-        var user = (Usuario) request.getSession(false).getAttribute("user_id");
+        var usuario = (Usuario) request.getSession(false).getAttribute("user_id");
 
         PedidosDAO dao = new PedidosDAOFactory().factory();
 
-        Pedidos pedido = new Pedidos();
         pedido.setNomeCliente(nome);
         pedido.setDescricao(descricao);
         pedido.setEnderecoEntrega(endereco);
         pedido.setValor(valor);
 
-        boolean saved = dao.create(user, pedido);
+        boolean saved = dao.create(usuario, pedido);
 
-        String message;
         if(saved) {
             message = "Pedido salvo com sucesso.";
         }else {

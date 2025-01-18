@@ -18,6 +18,6 @@ public class OrderCommand implements Command{
         List<Pedidos> pedidos = dao.retriveAll();
         request.setAttribute("pedidos", pedidos);
 
-        return "/logged/relatorio.jsp";
+        return "/Logado/relatorio.jsp";
     }
 }
