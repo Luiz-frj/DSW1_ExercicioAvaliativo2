@@ -18,4 +18,3 @@ public interface PedidosDAO {
 
     boolean delete(Pedidos pedido);
 }
-

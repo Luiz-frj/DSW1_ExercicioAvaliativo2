@@ -14,58 +14,63 @@ package br.edu.ifsp.dsw1.dsw1_exercicioavaliativo2.model.entity;
 
 public class Pedidos {
 
-    private int id;
-    private String nomeCliente;
-    private String enderecoEntrega;
-    private double valor;
-    private String descricao;
+    private int id; // Identificador único do pedido
+    private String nomeCliente; // Nome do cliente que fez o pedido
+    private String enderecoEntrega; // Endereço de entrega do pedido
+    private double valor; // Valor total do pedido
+    private String descricao; // Descrição adicional sobre o pedido
 
+    // Construtor padrão (sem parâmetros)
     public Pedidos() {}
 
+    // Construtor com parâmetros para inicializar o pedido com dados fornecidos
     public Pedidos(String nomeCliente, String enderecoEntrega, double valor, String descricao) {
-        super();
-        this.nomeCliente = nomeCliente;
-        this.enderecoEntrega = enderecoEntrega;
-        this.valor = valor;
-        this.descricao = descricao;
+        super(); // Chama o construtor da classe pai (Object)
+        this.nomeCliente = nomeCliente; // Inicializa o nome do cliente
+        this.enderecoEntrega = enderecoEntrega; // Inicializa o endereço de entrega
+        this.valor = valor; // Inicializa o valor do pedido
+        this.descricao = descricao; // Inicializa a descrição do pedido
     }
 
-    //Gets
+    // Métodos "getters" para acessar os valores dos atributos privados
     public int getId() {
-        return id;
+        return id; // Retorna o ID do pedido
     }
 
     public String getNomeCliente() {
-        return nomeCliente;
+        return nomeCliente; // Retorna o nome do cliente
     }
 
     public String getEnderecoEntrega() {
-        return enderecoEntrega;
+        return enderecoEntrega; // Retorna o endereço de entrega
     }
 
     public double getValor() {
-        return valor;
+        return valor; // Retorna o valor total do pedido
     }
 
     public String getDescricao() {
-        return descricao;
+        return descricao; // Retorna a descrição do pedido
     }
 
-    //Sets
+    // Métodos "setters" para modificar os valores dos atributos privados
     public void setId(int id) {
-        this.id = id;
+        this.id = id; // Define o ID do pedido
     }
+
     public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+        this.nomeCliente = nomeCliente; // Define o nome do cliente
     }
+
     public void setEnderecoEntrega(String enderecoEntrega) {
-        this.enderecoEntrega = enderecoEntrega;
+        this.enderecoEntrega = enderecoEntrega; // Define o endereço de entrega
     }
+
     public void setValor(double valor) {
-        this.valor = valor;
+        this.valor = valor; // Define o valor do pedido
     }
+
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        this.descricao = descricao; // Define a descrição do pedido
     }
 }
-
