@@ -6,28 +6,23 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-public class DeleteCommand implements Command{
-
+public class PesquisaCommand implements Command{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        var sessao = request.getSession(false);
         var dao = new PedidosDAOFactory().factory();
-        int id = Integer.parseInt(request.getParameter("id"));
+        String nomeCliente = request.getParameter("nomeCliente");
 
-        Pedidos pedido = dao.retrieve(id);
+        List<Pedidos> pedidos = dao.findByClientName(nomeCliente);
 
-        boolean deleted = dao.delete(pedido);
-
-        String message;
-        if(deleted) {
-            message = "Pedido " + pedido.getDescricao() + " deletado com sucesso!";
-        }else {
-            message = "Não foi possível deletar o produto: " + pedido.getDescricao() + "!";
+        if(pedidos.isEmpty()) {
+            request.setAttribute("message", "Cliente não encontrado");
+            pedidos = dao.retrieve();
         }
 
-        request.setAttribute("message", message);
-        return "logado.do?action=listarPedidos";
+        request.setAttribute("pedidos", pedidos);
+        return "logado.do?action=pageLista";
     }
 }

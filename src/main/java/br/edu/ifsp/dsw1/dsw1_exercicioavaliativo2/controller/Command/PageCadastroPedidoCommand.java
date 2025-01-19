@@ -5,10 +5,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class NewOrderCommand implements Command{
+public class PageCadastroPedidoCommand implements Command{
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        return "/Logado/form_pedido.jsp";
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        return "/Logado/cadastrarPedido.jsp";
     }
 }

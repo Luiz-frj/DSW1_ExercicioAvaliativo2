@@ -5,29 +5,31 @@ import br.edu.ifsp.dsw1.dsw1_exercicioavaliativo2.model.entity.Pedidos;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-public class DeleteCommand implements Command{
+import java.io.IOException;
+import java.util.List;
+
+public class ListCommand implements Command{
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        var sessao = request.getSession(false);
         var dao = new PedidosDAOFactory().factory();
-        int id = Integer.parseInt(request.getParameter("id"));
 
-        Pedidos pedido = dao.retrieve(id);
+        String messageUpdated = (String) request.getAttribute("messageUpdated");
 
-        boolean deleted = dao.delete(pedido);
+        List<Pedidos> pedidos = dao.retrieve();
 
-        String message;
-        if(deleted) {
-            message = "Pedido " + pedido.getDescricao() + " deletado com sucesso!";
-        }else {
-            message = "Não foi possível deletar o produto: " + pedido.getDescricao() + "!";
+        if(pedidos.isEmpty()) {
+            request.setAttribute("message", "Lista de pedidos vazia!");
         }
 
-        request.setAttribute("message", message);
-        return "logado.do?action=listarPedidos";
+        if(messageUpdated != null && !messageUpdated.isEmpty()) {
+            request.setAttribute("messageUpdated", messageUpdated);
+        }
+
+        request.setAttribute("pedidos", pedidos);
+
+        return "logado.do?action=pageLista";
     }
 }

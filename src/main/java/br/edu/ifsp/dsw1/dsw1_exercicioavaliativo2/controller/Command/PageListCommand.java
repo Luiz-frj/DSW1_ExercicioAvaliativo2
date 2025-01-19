@@ -5,9 +5,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class NewUserCommand implements Command{
+public class PageListCommand implements Command{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        return "/Logado/form_user.jsp";
+
+        return "/Logado/listaPedidos.jsp";
     }
 }

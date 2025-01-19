@@ -26,32 +26,33 @@ public class ServletLogado extends HttpServlet {
         Command command = null;
         String action = request.getParameter("action");
 
-        if("logged".equals(action)) {
-            command = new LogadoCommand();//
-        }else if("newUser".equals(action)) {
-            command = new NewUserCommand();//
-        }else if("newOrder".equals(action)) {
-            command = new NewOrderCommand();//
-        }else if("orders".equals(action)) {
-            command = new OrdersCommand();
-        }else if("logout".equals(action)) {
-            command = new LogoutCommand();//
-        }else if("createUser".equals(action)) {
-            command = new CreateUserCommand();//
-        }else if("createOrder".equals(action)) {
-            command = new CreateOrderCommand();//
-        }else if("buscarCliente".equals(action)) {
-            command = new BuscaClienteCommand();//
-        }else if("update".equals(action)) {
-            command = new UpdateCommand();//
-        }else if("commitUpdate".equals(action)) {
-            command = new CommitUpdateCommand();//
-        }else if("delete".equals(action)) {
-            command = new DeleteCommand();//
+        if(action.equals("pageHome")) {
+            command = new HomeCommand();
+        }else if(action.equals("logout")) {
+            command = new LogoutCommand();
+        }else if(action.equals("pageCadastroUsuario")) {
+            command = new PageCadastroUsuarioCommand();
+        }else if(action.equals("cadastroUsuario")) {
+            command = new CadastroUsuarioCommand();
+        }else if(action.equals("pageCadastroPedido")) {
+            command = new PageCadastroPedidoCommand();
+        }else if(action.equals("cadastroPedido")) {
+            command = new CadastroPedidoCommand();
+        }else if(action.equals("listarPedidos")) {
+            command = new ListCommand();
+        }else if(action.equals("pageLista")) {
+            command = new PageListCommand();
+        }else if(action.equals("delete")) {
+            command = new DeleteCommand();
+        }else if(action.equals("pesquisa")) {
+            command = new PesquisaCommand();
+        }else if(action.equals("pageUpdate")) {
+            command = new PageUpdateCommand();
+        }else if(action.equals("updatePedido")) {
+            command = new UpdateCommand();
         }
 
-        String view = command.execute(request,response);
-
+        String view = command.execute(request, response);
         var dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }
