@@ -3,10 +3,9 @@
 
 <nav class="navbar navbar-expand-lg bg-warning">
 	<div class="container-fluid">
-		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=logged">ARQDSW1</a>
-		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=newUser">Novo Usuário</a>
-		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=newOrder">Novo Pedido</a>
-		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=orders">Relatório</a>
+		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=pageCadastroUsuario">Novo Usuário</a>
+		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=pageCadastroPedido">Novo Pedido</a>
+		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=listarPedidos">Relatório</a>
 		<a class="me-3" href="<%= request.getContextPath() %>/logado.do?action=logout">Sair</a>
 	</div>
 </nav>

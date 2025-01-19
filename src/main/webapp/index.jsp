@@ -2,36 +2,38 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<jsp:include page="/includes/head.html" />
-<body>
+	<jsp:include page="/includes/head.html" />
+	<body>
 
-	<jsp:include page="/includes/navBar.jsp" />
+		<jsp:include page="/includes/navBar.jsp" />
 
-	<hr>
-	<%
-		String msg = (String) request.getAttribute("message");
-		if (msg != null ) {
-	%>
-	<h1><%=msg%></h1>
-	<hr>
-	<%} %>
+		<h1>Login</h1>
+		<br><br>
+		<hr>
+		<br><br>
 
-	<form action="<%= request.getContextPath() %>/front.do?action=login" method="post">
-		<label for="login">Login</label>
-		<input type="text" id="login" name="textLogin"
-			   placeholder="Digite seu login." required="required">
+		<%
+			String message = (String) request.getAttribute("message");
+			if(message != null){
+		%> <h3><%=message%></h3>
+		<%
+			}
+		%>
 
-		<br/><br/>
+		<br><br>
 
-		<label for="password">Senha</label>
-		<input type="password" id="password" name="textSenha"
-			   placeholder="Digite sua senha." required="required">
+		<form action="front.do?action=login" method="post">
+			<label for="login">Login</label>
+			<input type="text" id="login" name="login" required="required" placeholder="digite o seu login"><br><br>
 
-		<br/>
+			<label for="senha">Senha</label>
+			<input type="password" id="senha" name="senha" required="required" placeholder="digite a sua senha"><br><br>
 
-		<button type="submit" style="text-align: center;">Entrar</button>
-	</form>
+			<button type="submit">Enviar</button>
+		</form>
 
-	<jsp:include page="/includes/scripts.html" />
-</body>
+		<br><br>
+		<hr>
+		<jsp:include page="/includes/scripts.html" />
+	</body>
 </html>

@@ -7,6 +7,5 @@ public interface UsuarioDAO {
     boolean insert(Usuario usuario);
 
     Usuario findByLogin(String login);
-
 }
 

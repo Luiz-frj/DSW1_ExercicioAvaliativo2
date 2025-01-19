@@ -8,41 +8,31 @@ package br.edu.ifsp.dsw1.dsw1_exercicioavaliativo2.model.entity;
 	endereco_entrega VARCHAR(200),
 	valor DECIMAL(10,2) NOT NULL,
 	descricao VARCHAR(300),
-	login_usuario VARCHAR(50) NOT NULL,
-    FOREIGN KEY (login_usuario) REFERENCES usuario (login) ON DELETE CASCADE
 	);
  *
  */
 
 public class Pedidos {
-    private int idPedido;
-    private double valor;
+
+    private int id;
     private String nomeCliente;
     private String enderecoEntrega;
+    private double valor;
     private String descricao;
-    private String login;
 
-    public Pedidos() {
-    };
+    public Pedidos() {}
 
-    public Pedidos(int idPedido, double valor, String nomeCliente, String enderecoEntrega, String descricao, String login) {
+    public Pedidos(String nomeCliente, String enderecoEntrega, double valor, String descricao) {
         super();
-        setIdPedido(idPedido);
-        setValor(valor);
-        setNomeCliente(nomeCliente);
-        setEnderecoEntrega(enderecoEntrega);
-        setDescricao(descricao);
-        setLogin(login);
+        this.nomeCliente = nomeCliente;
+        this.enderecoEntrega = enderecoEntrega;
+        this.valor = valor;
+        this.descricao = descricao;
     }
 
     //Gets
-
-    public int getIdPedido() {
-        return idPedido;
-    }
-
-    public double getValor() {
-        return valor;
+    public int getId() {
+        return id;
     }
 
     public String getNomeCliente() {
@@ -53,35 +43,29 @@ public class Pedidos {
         return enderecoEntrega;
     }
 
+    public double getValor() {
+        return valor;
+    }
+
     public String getDescricao() {
         return descricao;
     }
 
-    public String getLogin(){return login;}
-
     //Sets
-
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setId(int id) {
+        this.id = id;
     }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
-
     public void setEnderecoEntrega(String enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
     }
-
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public void setLogin(String login){this.login = login;}
-
 }
 

@@ -12,9 +12,12 @@ public class Usuario {
     private String login;
     private String senha;
 
-    public Usuario(String login, String Senha) {
-        setLogin(login);
-        setSenha(senha);
+    public Usuario() {}
+
+    public Usuario(String login, String senha) {
+        super();
+        this.login = login;
+        this.senha = senha;
     }
 
     public String getLogin() {
@@ -33,9 +36,9 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public static boolean verifica(Usuario fromSystem, String login, String senha){
-        if(fromSystem != null){
-            return login.equals(fromSystem.getLogin()) && senha.equals(fromSystem.senha);
+    public static boolean autentica(Usuario fromSystem, String login, String senha) {
+        if (fromSystem != null) {
+            return senha.equals(fromSystem.getSenha()) && login.equals(fromSystem.getLogin());
         }
         return false;
     }
