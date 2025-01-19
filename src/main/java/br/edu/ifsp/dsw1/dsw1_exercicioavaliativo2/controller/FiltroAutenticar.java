@@ -20,7 +20,7 @@ public class FiltroAutenticar implements Filter{
         if (session != null && session.getAttribute("user_id") != null) {
             chain.doFilter(request, response);
         } else {
-            //Caso não seja válida, mandamos o usuário para a index.
+
             request.setAttribute("message", "Acesso permitido apenas para usuário logado.");
 
             var dispatcher = request.getRequestDispatcher("/front.do?action=index");

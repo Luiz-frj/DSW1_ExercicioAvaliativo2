@@ -8,6 +8,6 @@ import java.io.IOException;
 public class LogadoCommand implements Command{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        return "Logado/logged.jsp";
+        return "/Logado/logged.jsp";
     }
 }

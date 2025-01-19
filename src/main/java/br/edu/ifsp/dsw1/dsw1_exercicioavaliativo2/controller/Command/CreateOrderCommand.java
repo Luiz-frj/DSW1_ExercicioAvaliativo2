@@ -45,7 +45,7 @@ public class CreateOrderCommand implements Command{
 
         request.setAttribute("message", msg);
 
-        return "Logado/form_pedido.jsp";
+        return "/Logado/form_pedido.jsp";
     }
 
 }
