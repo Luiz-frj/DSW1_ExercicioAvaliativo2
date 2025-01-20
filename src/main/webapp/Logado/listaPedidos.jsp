@@ -71,7 +71,7 @@
       <td><%=pedido.getEnderecoEntrega()%></td>
       <td><%=pedido.getValor()%></td>
       <td><%=pedido.getDescricao()%></td>
-      <td><a href="logado.do?action=pageUpdate&idPedido=<%=pedido.getId()%>">Editar pedido</a></td>
+      <td><a href="logado.do?action=pageUpdate&id_pedidos=<%=pedido.getId()%>">Editar pedido</a></td>
       <td><a href="logado.do?action=delete&id=<%=pedido.getId()%>">Deletar pedido</a></td>
     </tr>
 
