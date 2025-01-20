@@ -8,3 +8,4 @@ Devido a mudança da IDE (do Eclipse para o IntelliJ), precisei recomeçar o pro
 #### OBS:
     - Login padrão: "admin"
     - Senha padrão: "admin"
+    - Recomendo dar DROP antes de qualquer teste
