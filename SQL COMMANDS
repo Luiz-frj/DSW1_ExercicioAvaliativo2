@@ -1,0 +1,18 @@
+//SQL COMMANDS
+
+create database empresadb;
+
+use empresadb;
+
+CREATE TABLE pedidos(
+	id_pedidos INT PRIMARY KEY AUTO_INCREMENT,
+	nome_cliente VARCHAR(145),
+	endereco_entrega VARCHAR(200),
+	valor DECIMAL(10,2) NOT NULL,
+	descricao VARCHAR(300)
+	);
+    
+    CREATE TABLE usuario (
+    login VARCHAR(50) PRIMARY KEY NOT NULL,
+    senha VARCHAR(50) NOT NULL
+	);
