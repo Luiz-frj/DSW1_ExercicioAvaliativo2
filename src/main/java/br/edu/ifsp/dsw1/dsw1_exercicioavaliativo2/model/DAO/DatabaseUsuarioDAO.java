@@ -5,6 +5,13 @@ import br.edu.ifsp.dsw1.dsw1_exercicioavaliativo2.model.DAO.connection.DatabaseC
 import br.edu.ifsp.dsw1.dsw1_exercicioavaliativo2.model.entity.Usuario;
 import java.sql.SQLException;
 
+/*
+ * CREATE TABLE usuario (
+    login VARCHAR(50) PRIMARY KEY NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+	);
+ */
+
 public class DatabaseUsuarioDAO implements UsuarioDAO {
 
     // Definição das queries SQL usadas para inserção e busca de usuários

@@ -15,8 +15,8 @@ package br.edu.ifsp.dsw1.dsw1_exercicioavaliativo2.model.entity;
 public class Pedidos {
 
     private int id; // Identificador único do pedido
-    private String nomeCliente; // Nome do cliente que fez o pedido
-    private String enderecoEntrega; // Endereço de entrega do pedido
+    private String nome; // Nome do cliente que fez o pedido
+    private String endereco; // Endereço de entrega do pedido
     private double valor; // Valor total do pedido
     private String descricao; // Descrição adicional sobre o pedido
 
@@ -24,10 +24,10 @@ public class Pedidos {
     public Pedidos() {}
 
     // Construtor com parâmetros para inicializar o pedido com dados fornecidos
-    public Pedidos(String nomeCliente, String enderecoEntrega, double valor, String descricao) {
+    public Pedidos(String nome, String endereco, double valor, String descricao) {
         super(); // Chama o construtor da classe pai (Object)
-        this.nomeCliente = nomeCliente; // Inicializa o nome do cliente
-        this.enderecoEntrega = enderecoEntrega; // Inicializa o endereço de entrega
+        this.nome = nome; // Inicializa o nome do cliente
+        this.endereco = endereco; // Inicializa o endereço de entrega
         this.valor = valor; // Inicializa o valor do pedido
         this.descricao = descricao; // Inicializa a descrição do pedido
     }
@@ -38,11 +38,11 @@ public class Pedidos {
     }
 
     public String getNomeCliente() {
-        return nomeCliente; // Retorna o nome do cliente
+        return nome; // Retorna o nome do cliente
     }
 
     public String getEnderecoEntrega() {
-        return enderecoEntrega; // Retorna o endereço de entrega
+        return endereco; // Retorna o endereço de entrega
     }
 
     public double getValor() {
@@ -58,12 +58,12 @@ public class Pedidos {
         this.id = id; // Define o ID do pedido
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente; // Define o nome do cliente
+    public void setNomeCliente(String nome) {
+        this.nome = nome; // Define o nome do cliente
     }
 
-    public void setEnderecoEntrega(String enderecoEntrega) {
-        this.enderecoEntrega = enderecoEntrega; // Define o endereço de entrega
+    public void setEnderecoEntrega(String endereco) {
+        this.endereco = endereco; // Define o endereço de entrega
     }
 
     public void setValor(double valor) {

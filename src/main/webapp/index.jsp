@@ -8,9 +8,6 @@
 		<jsp:include page="/includes/navBar.jsp" />
 
 		<h1>Login</h1>
-		<br><br>
-		<hr>
-		<br><br>
 
 		<%
 			String message = (String) request.getAttribute("message");

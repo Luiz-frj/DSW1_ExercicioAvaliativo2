@@ -14,8 +14,8 @@ public class CadastroPedidoCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtém os parâmetros enviados pelo formulário de cadastro
-        String nomeCliente = request.getParameter("nomeCliente");
-        String endereco = request.getParameter("endereco");
+        String nomeCliente = request.getParameter("nome_cliente");
+        String endereco = request.getParameter("endereco_entrega");
         double valor = Double.parseDouble(request.getParameter("valor")); // Converte o valor de String para double
         String descricao = request.getParameter("descricao");
 

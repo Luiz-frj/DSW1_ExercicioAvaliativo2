@@ -14,11 +14,11 @@ public class UpdateCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Obtém o ID do pedido a ser atualizado
-        var idPedido = Integer.parseInt(request.getParameter("idPedido"));
+        var idPedido = Integer.parseInt(request.getParameter("id_pedidos"));
 
         // Obtém os dados atualizados do pedido a partir da requisição
-        String nomeCliente = request.getParameter("nomeCliente");
-        String endereco = request.getParameter("endereco");
+        String nomeCliente = request.getParameter("nome_cliente");
+        String endereco = request.getParameter("endereco_entrega");
         double valor = Double.parseDouble(request.getParameter("valor"));
         String descricao = request.getParameter("descricao");
 

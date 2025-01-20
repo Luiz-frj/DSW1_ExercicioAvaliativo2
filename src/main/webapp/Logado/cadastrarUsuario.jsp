@@ -12,9 +12,6 @@
     <jsp:include page="includes/navBar.jsp"/>
 
     <h1>Cadastrar usuario</h1>
-    <br><br>
-    <hr>
-    <br><br>
 
     <%
       String message = (String) request.getAttribute("message");

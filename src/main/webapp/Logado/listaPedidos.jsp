@@ -14,8 +14,7 @@
   <jsp:include page="includes/navBar.jsp"/>
 
   <h1>Tabela de pedidos</h1>
-  <br><br>
-  <hr><br><br>
+
 
   <%
     List<Pedidos> pedidos = (List<Pedidos>) request.getAttribute("pedidos");
@@ -40,7 +39,7 @@
   <br><br>
 
   <form action="logado.do?action=pesquisa" method="post">
-    <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Pesquise pelo nome do cliente">
+    <input type="text" name="nome_cliente" id="nome_cliente" placeholder="Pesquise pelo nome do cliente">
     <button type="submit">Pesquisar</button>
   </form>
 

@@ -19,7 +19,7 @@ public class PesquisaCommand implements Command {
         var dao = new PedidosDAOFactory().factory();
 
         // Obtém o nome do cliente da requisição
-        String nomeCliente = request.getParameter("nomeCliente");
+        String nomeCliente = request.getParameter("nome_cliente");
 
         // Chama o método 'findByClientName' para buscar pedidos que correspondem ao nome do cliente
         List<Pedidos> pedidos = dao.findByClientName(nomeCliente);

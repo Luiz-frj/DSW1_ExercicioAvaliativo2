@@ -13,10 +13,10 @@ public class PageUpdateCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Obtém o parâmetro 'idPedido' da requisição (passado na URL ou formulário)
-        int idPedido = Integer.parseInt(request.getParameter("idPedido"));
+        int idPedido = Integer.parseInt(request.getParameter("id_pedidos"));
 
         // Adiciona o 'idPedido' ao atributo da requisição para que a página de atualização tenha acesso a ele
-        request.setAttribute("idPedido", idPedido);
+        request.setAttribute("id_pedidos", idPedido);
 
         // Retorna o caminho da página de atualização de pedido
         return "/Logado/updatePedido.jsp";

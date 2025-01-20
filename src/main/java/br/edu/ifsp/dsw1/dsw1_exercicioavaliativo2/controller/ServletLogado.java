@@ -9,13 +9,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/logado.do") // Define o servlet para a URL "/logado.do"
+
+@WebServlet("/logado.do")
 public class ServletLogado extends HttpServlet {
     private static final long serialVersionUID = 1L; // Identificador único para a versão do servlet
 
-    // Método para processar requisições GET
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response); // Chama o método processRequest para lidar com a requisição
+        processRequest(request, response);
     }
 
     // Método para processar requisições POST
@@ -27,6 +28,8 @@ public class ServletLogado extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Command command = null; // Declaração do comando que será executado
         String action = request.getParameter("action"); // Obtém o parâmetro "action" da requisição para determinar a ação a ser realizada
+
+        System.out.println("Action received: " + action);
 
         // A partir do valor de "action", instancia o comando correspondente
         if(action.equals("pageHome")) {
@@ -56,6 +59,8 @@ public class ServletLogado extends HttpServlet {
         }
 
         // Executa o comando e obtém a view (caminho da página de destino)
+        assert command != null;
+        
         String view = command.execute(request, response);
         var dispatcher = request.getRequestDispatcher(view); // Prepara o redirecionamento para a página
         dispatcher.forward(request, response); // Encaminha a requisição e resposta para a página de destino

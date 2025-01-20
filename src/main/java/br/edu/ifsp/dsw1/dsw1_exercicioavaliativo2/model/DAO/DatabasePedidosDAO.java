@@ -8,15 +8,27 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+/* CODIGO SQL
+ *
+ * CREATE TABLE pedidos(
+	id_pedidos INT PRIMARY KEY AUTO_INCREMENT,
+	nome_cliente VARCHAR(145),
+	endereco_entrega VARCHAR(200),
+	valor DECIMAL(10,2) NOT NULL,
+	descricao VARCHAR(300),
+	);
+ *
+ */
+
 public class DatabasePedidosDAO implements PedidosDAO {
 
     // Definição das queries SQL usadas no CRUD
-    private static final String INSERT = "INSERT INTO pedidos (nomeCliente, enderecoEntrega, valor, descricao) VALUES (?, ?, ?, ?)";
-    private static final String SELECT_BY_ID = "SELECT * FROM pedidos WHERE idpedidos = ?";
-    private static final String SELECT_BY_CLIENT_NAME = "SELECT * FROM pedidos WHERE nomeCliente LIKE ? ORDER BY nomeCliente";
-    private static final String SELECT_ALL = "SELECT * FROM pedidos ORDER BY idpedidos";
-    private static final String UPDATE = "UPDATE pedidos SET nomeCliente = ?, enderecoEntrega = ?, valor = ?, descricao = ? WHERE idpedidos = ?";
-    private static final String DELETE = "DELETE FROM pedidos WHERE idpedidos = ?";
+    private static final String INSERT = "INSERT INTO pedidos (nome_cliente, endereco_entrega, valor, descricao) VALUES (?, ?, ?, ?)";
+    private static final String SELECT_BY_ID = "SELECT * FROM pedidos WHERE id_pedidos = ?";
+    private static final String SELECT_BY_CLIENT_NAME = "SELECT * FROM pedidos WHERE nome_cliente LIKE ? ORDER BY nome_cliente";
+    private static final String SELECT_ALL = "SELECT * FROM pedidos ORDER BY id_pedidos";
+    private static final String UPDATE = "UPDATE pedidos SET nome_cliente = ?, endereco_entrega = ?, valor = ?, descricao = ? WHERE id_pedidos = ?";
+    private static final String DELETE = "DELETE FROM pedidos WHERE id_pedidos = ?";
 
     @Override
     public boolean create(Pedidos pedido) {
@@ -54,9 +66,9 @@ public class DatabasePedidosDAO implements PedidosDAO {
                 // Se o pedido for encontrado, popula o objeto Pedidos com os dados do banco
                 if (result.next()) {
                     pedido = new Pedidos();
-                    pedido.setId(result.getInt("idpedidos"));
-                    pedido.setNomeCliente(result.getString("nomeCliente"));
-                    pedido.setEnderecoEntrega(result.getString("enderecoEntrega"));
+                    pedido.setId(result.getInt("id_pedidos"));
+                    pedido.setNomeCliente(result.getString("nome_cliente"));
+                    pedido.setEnderecoEntrega(result.getString("endereco_entrega"));
                     pedido.setValor(result.getDouble("valor"));
                     pedido.setDescricao(result.getString("descricao"));
                 }
@@ -77,9 +89,9 @@ public class DatabasePedidosDAO implements PedidosDAO {
             // Preenche a lista com os pedidos encontrados
             while (result.next()) {
                 Pedidos pedido = new Pedidos();
-                pedido.setId(result.getInt("idpedidos"));
-                pedido.setNomeCliente(result.getString("nomeCliente"));
-                pedido.setEnderecoEntrega(result.getString("enderecoEntrega"));
+                pedido.setId(result.getInt("id_pedidos"));
+                pedido.setNomeCliente(result.getString("nome_cliente"));
+                pedido.setEnderecoEntrega(result.getString("endereco_entrega"));
                 pedido.setValor(result.getDouble("valor"));
                 pedido.setDescricao(result.getString("descricao"));
                 pedidos.add(pedido);
@@ -103,9 +115,9 @@ public class DatabasePedidosDAO implements PedidosDAO {
             // Preenche a lista com os pedidos encontrados
             while (result.next()) {
                 Pedidos pedido = new Pedidos();
-                pedido.setId(result.getInt("idpedidos"));
-                pedido.setNomeCliente(result.getString("nomeCliente"));
-                pedido.setEnderecoEntrega(result.getString("enderecoEntrega"));
+                pedido.setId(result.getInt("id_pedidos"));
+                pedido.setNomeCliente(result.getString("nome_cliente"));
+                pedido.setEnderecoEntrega(result.getString("endereco_entrega"));
                 pedido.setValor(result.getDouble("valor"));
                 pedido.setDescricao(result.getString("descricao"));
                 pedidos.add(pedido);

@@ -11,9 +11,7 @@
 <body>
 <jsp:include page="includes/navBar.jsp"/>
     <h1>Editar pedido</h1>
-    <br><br>
-    <hr>
-    <br><br>
+
 
     <%
         String message = (String) request.getAttribute("message");
@@ -24,17 +22,17 @@
     %>
 
     <%
-        int idPedido = (Integer) request.getAttribute("idPedido");
+        int idPedido = (Integer) request.getAttribute("id_pedidos");
     %>
 
     <br><br>
 
     <form action="logado.do?action=updatePedido&idPedido=<%=idPedido%>" method="post">
-        <label for="nomeCliente">Nome do cliente</label>
-        <input type="text" id="nomeCliente" name="nomeCliente" required="required" placeholder="Digite o nome do cliente"><br><br>
+        <label for="nome_cliente">Nome do cliente</label>
+        <input type="text" id="nome_cliente" name="nome_cliente" required="required" placeholder="Digite o nome do cliente"><br><br>
 
-        <label for="endereco">Endereço</label>
-        <input type="text" id="endereco" name="endereco" required="required" placeholder="Digite o endereço do pedido"><br><br>
+        <label for="endereco_entrega">Endereço</label>
+        <input type="text" id="endereco_entrega" name="endereco_entrega" required="required" placeholder="Digite o endereço do pedido"><br><br>
 
         <label for="valor">Valor</label>
         <input type="number" id="valor" name="valor" required="required" placeholder="Digite o valor do pedido"><br><br>

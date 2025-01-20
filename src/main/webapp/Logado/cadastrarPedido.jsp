@@ -11,9 +11,6 @@
     <jsp:include page="includes/navBar.jsp"/>
     <body>
         <h1>Cadastrar usuario</h1>
-        <br><br>
-        <hr>
-        <br><br>
 
         <%
             String message = (String) request.getAttribute("message");
@@ -26,11 +23,11 @@
         <br><br>
 
         <form action="logado.do?action=cadastroPedido" method="post">
-            <label for="nomeCliente">Nome do cliente</label>
-            <input type="text" id="nomeCliente" name="nomeCliente" required="required" placeholder="Digite o nome do cliente"><br><br>
+            <label for="nome_cliente">Nome do cliente</label>
+            <input type="text" id="nome_cliente" name="nome_cliente" required="required" placeholder="Digite o nome do cliente"><br><br>
 
-            <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" name="endereco" required="required" placeholder="Digite o endereço do pedido"><br><br>
+            <label for="endereco_entrega">Endereço</label>
+            <input type="text" id="endereco_entrega" name="endereco_entrega" required="required" placeholder="Digite o endereço do pedido"><br><br>
 
             <label for="valor">Valor</label>
             <input type="number" id="valor" name="valor" required="required" placeholder="Digite o valor do pedido"><br><br>
