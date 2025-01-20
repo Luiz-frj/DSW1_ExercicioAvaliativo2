@@ -22,12 +22,12 @@
     %>
 
     <%
-        int idPedido = (Integer) request.getAttribute("id_pedidos");
+        int id_pedidos = (Integer) request.getAttribute("id_pedidos");
     %>
 
     <br><br>
 
-    <form action="logado.do?action=updatePedido&idPedido=<%=idPedido%>" method="post">
+    <form action="logado.do?action=updatePedido&id_pedidos=<%=id_pedidos%>" method="post">
         <label for="nome_cliente">Nome do cliente</label>
         <input type="text" id="nome_cliente" name="nome_cliente" required="required" placeholder="Digite o nome do cliente"><br><br>
 
