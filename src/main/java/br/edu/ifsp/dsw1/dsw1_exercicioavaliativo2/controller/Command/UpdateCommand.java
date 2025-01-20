@@ -14,7 +14,7 @@ public class UpdateCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Obtém o ID do pedido a ser atualizado
-        var idPedido = Integer.parseInt(request.getParameter("id_pedidos"));
+        var id_pedidos = Integer.parseInt(request.getParameter("id_pedidos"));
 
         // Obtém os dados atualizados do pedido a partir da requisição
         String nomeCliente = request.getParameter("nome_cliente");
@@ -26,13 +26,13 @@ public class UpdateCommand implements Command {
         var dao = new PedidosDAOFactory().factory();
 
         // Recupera o pedido existente no banco de dados pelo ID
-        Pedidos pedidoAntigo = dao.retrieve(idPedido);
+        Pedidos pedidoAntigo = dao.retrieve(id_pedidos);
 
         // Cria um novo objeto pedido com os dados atualizados
         Pedidos pedido = new Pedidos(nomeCliente, endereco, valor, descricao);
 
         // Tenta atualizar o pedido no banco de dados
-        boolean updated = dao.update(pedido, idPedido);
+        boolean updated = dao.update(pedido, id_pedidos);
 
         // Se a atualização for bem-sucedida
         if (updated) {
