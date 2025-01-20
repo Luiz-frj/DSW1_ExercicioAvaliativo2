@@ -8,18 +8,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/* CODIGO SQL
- *
- * CREATE TABLE pedidos(
-	id_pedidos INT PRIMARY KEY AUTO_INCREMENT,
-	nome_cliente VARCHAR(145),
-	endereco_entrega VARCHAR(200),
-	valor DECIMAL(10,2) NOT NULL,
-	descricao VARCHAR(300),
-	);
- *
- */
-
 public class DatabasePedidosDAO implements PedidosDAO {
 
     // Definição das queries SQL usadas no CRUD
